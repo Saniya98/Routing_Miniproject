@@ -28,12 +28,22 @@ app.get("/filter", (req,res)=>{
 })
 
 //4. POST a new joke
-
+app.post("/jokes", (req,res)=>{
+  const newJoke={
+    id:jokes.length+1,
+    jokeText:req.body.text,
+    jokeType:req.body.type,
+  }
+  jokes.push(newJoke);
+  console.log(jokes.slice(-1));
+  res.json(newJoke);
+})
 //5. PUT a joke
 
 //6. PATCH a joke
 
 //7. DELETE Specific joke
+//Delete joke id 102
 
 //8. DELETE All jokes
 
